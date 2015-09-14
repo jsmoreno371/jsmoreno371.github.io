@@ -1,0 +1,59 @@
+<div id="book-header">
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#book-navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand">Books</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="book-navbar">
+                <button id="create-book" class="btn btn-default navbar-btn" ng-hide="ctrl.editMode" ng-click="ctrl.createRecord()"><span class="glyphicon glyphicon-plus"></span> Agregar</button>
+                <button id="refresh-book" class="btn btn-default navbar-btn" ng-hide="ctrl.editMode" ng-click="ctrl.fetchRecords()"><span class="glyphicon glyphicon-refresh"></span> Editar</button>
+                <button id="save-book" type="submit" form="book-form" class="btn btn-default navbar-btn" ng-show="ctrl.editMode"><span class="glyphicon glyphicon-save"></span> Guardar</button>
+                <button id="cancel-book" type="button" form="book-form" class="btn btn-default navbar-btn" ng-show="ctrl.editMode" ng-click="form.$setPristine(); ctrl.fetchRecords();"><span class="glyphicon glyphicon-remove"></span> Borrar</button>
+            </div>
+        </div>
+    </nav>
+</div>
+<div ng-hide="ctrl.editMode">
+    <div class="col-sm-12">
+        <div ng-repeat="record in records">
+            <div class="col-md-4 col-sm-6 col-lg-3 well">
+                <div class="caption" >
+                    <p><strong>Nombre:</strong> {{record.nombre}}</p>
+                    <p><strong>Requerimientos:</strong> {{record.requerimientos}}</p>
+                </div>
+                <p class="text-center">
+                    <button id="{{$parent.$index}}-edit-btn" class="btn btn-default btn-sm" ng-click="ctrl.editRecord(record)"><span class="glyphicon glyphicon-edit"></span> Edit</button>
+                    <button id="{{$parent.$index}}-delete-btn" class="btn btn-default btn-sm" ng-click="ctrl.deleteRecord(record)"><span class="glyphicon glyphicon-minus"></span> Remove</button>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<div ng-show="ctrl.editMode" class="well">
+    <form novalidate name="form" id="book-form" role="form" ng-submit="form.$valid && ctrl.saveRecord()">
+        <fieldset>
+            <input id="id" class="form-control" type="hidden" ng-model="currentRecord.nombre"/>
+            <div class="form-group col-md-12" ng-class="{'has-success': form.nombre.$valid && form.nombre.$dirty, 'has-error': form.nombre.$invalid && (form.nombre.$dirty || form.$submitted)}" >
+                <label for="name" class="col-md-2 control-label">Nombre</label>
+                <div class="col-md-10">
+                    <input id="nombre" name="nombre" class="form-control" type="text" ng-model="currentRecord.nombre" required />
+                </div>
+            </div>
+            <div class="form-group col-md-12" ng-class="{'has-success': form.requerimientos.$valid && form.requerimientos.$dirty, 'has-error': form.requerimientos.$invalid && (form.requerimientos.$dirty || form.$submitted)}" >
+                <label for="description" class="col-md-2 control-label">Requerimientos</label>
+                <div class="col-md-10">
+                    <textarea id="requerimientos" name="requerimientos" class="form-control" type="text" rows="4" cols="50" ng-model="currentRecord.requerimientos" required > </textarea>
+                </div>
+            </div> 
+        </fieldset>
+    </form>
+</div>

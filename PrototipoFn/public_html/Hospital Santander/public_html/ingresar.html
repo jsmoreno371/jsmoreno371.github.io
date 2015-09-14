@@ -1,36 +1,11 @@
 <!DOCTYPE html>
-<html > 
-<!DOCTYPE html>
-
 <html >
   
 <head>
    
 <title>Ingresar</title>
-<body>
-<div class="body"></div>
-		<div class="grad"></div>
-		<div class="header">
-			<div>Hospital<span><br>Santander</span></div>
-		</div>
-		<br>
-		<div class="login">
-				<input type="text" placeholder="Usuario" name="usuario"><br>
-				<input type="password" placeholder="Contrasenia" name="contrasenia"><br>
-				<a href="index.html"><input type="button" value="Ingresar"/></a>
-		</div>
 
-    
-    
-    
-    
-  </body>
-    
-
-    
-    
-    
-        <style>
+<style>
 
 body{
 	margin: 0;
@@ -50,9 +25,10 @@ body{
 	bottom: -40px;
 	width: auto;
 	height: auto;
-	background-image: url(http://static.panoramio.com/photos/large/6976601.jpg);
+	background: url("http://i.imgur.com/ubXxtf4.png") fixed;
 	background-size: cover;
-	-webkit-filter: blur(5px);
+	-webkit-filter: blur(0.8px);
+	filter:blur(0.8px);
 	z-index: 0;
 }
 
@@ -68,82 +44,125 @@ body{
 	z-index: 1;
 	opacity: 0.7;
 }
-
-.header{
-	position: absolute;
-	top: calc(50% - 35px);
-	left: calc(50% - 255px);
-	z-index: 2;
+.clase{
+    position:absolute;
+    z-index: 3;
+    background: -webkit-linear-gradient(rgba(255, 218, 185, 0.9) 35%, rgba(255, 235, 205, 0.7) 90%); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(rgba(255, 218, 185, 0.9) 35%, rgba(255, 235, 205, 0.7) 90%); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(rgba(255, 218, 185, 0.9) 35%, rgba(255, 235, 205, 0.7) 90%); /* For Firefox 3.6 to 15 */
+    border: 1px solid #3A73D5;
+    top:38%;
+    left:38%;
 }
-
-
-.header 
-div{
-	
-float: left;
-	
-color: ;
-	
+#header {	
+float: left;	
 font-family: 'Exo', sans-serif;
-	
 font-size: 40px;
-	
 font-weight: 200;
-
+color: rgb(127,198,201);
 }
-
-
-.header 
-div span
+#header 
+div
 {
-	
-color: #FF0040;
-
+    text-align: center;
+    margin-left: 20%;
 }
-
-.login{
-	position: absolute;
-	top: calc(50% - 75px);
-	left: calc(50% - 50px);
+#login{
+    float:right;
 	height: 150px;
 	width: 350px;
 	padding: 10px;
-	z-index: 2;
 }
 
-.login input[type=text]{
+#login input[type=text]{
 	width: 250px;
 	height: 30px;
-	background: transparent;
+	background: rgba(180,180,188,0.8);
 	color: #fff;
 	padding: 4px;
 }
 
-.login input[type=password]{
+#login input[type=password]{
 	width: 250px;
 	height: 30px;
-	background: transparent;
+	background: rgba(180,180,188,0.8);
 	color: #fff;
 	padding: 4px;
 	margin-top: 10px;
 }
+::-webkit-input-placeholder
+{
+    color: grey;
+}
+:-moz-placeholder 
+{
+    color: grey;
+}
+::-moz-placeholder 
+{
+    color: grey;
+}
 
-.login input[type=button]{
+#login input[type=button]{
 	width: 260px;
 	height: 35px;
-	background: #fff;
-	border: 1px solid #fff;
 	cursor: pointer;
 	color: #a18d6c;
 	padding: 6px;
 	margin-top: 10px;
 }
 
-
+#pag1:visited
+{
+color:red;
+}
+#pag2:visited
+{
+color:red;
+}
+#pag3:visited
+{
+color:red;
+}
     </style>
 
     
   </head>
+
+
+<body>
+<div class="body"></div>
+		<div class="grad"></div>
+                <div class="clase">
+		<div id="header">
+			<div>Hospital<br>Santander</div>
+		</div>
+		<br>
+      
+		<div id="login">
+				<input type="text" placeholder="Usuario" name="usuario"><br>
+				<input type="password" placeholder="Contrasenia" name="contrasenia"><br>
+				<a href="index.html"><input type="button" value="Ingresar"/></a>
+                                <br><br>
+                                <a href="Paciente.html" id="pag1">USUARIO PACIENTE </a>
+                                <br><br>
+                                <a href="Medico.html" id="pag2">USUARIO DOCTOR </a>
+                                <br><br>
+                                <a href="Admin.html" id="pag3">USUARIO ADMIN </a>
+		</div>
+                </div>
+
+    
+    
+    
+    
+  </body>
+    
+
+    
+    
+    
+        
 
 
 </html>
